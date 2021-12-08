@@ -1,0 +1,224 @@
+{
+  "mappings": {
+    "properties": {
+      "@timestamp": {
+        "type": "date"
+      },
+      "channel": {
+        "type": "keyword"
+      },
+      "context": {
+        "properties": {
+          "exception": {
+            "properties": {
+              "class": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "code": {
+                "type": "integer"
+              },
+              "file": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "line": {
+                "type": "integer"
+              },
+              "message": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "trace": {
+                "type": "text"
+              }
+            }
+          },
+          "message": {
+            "type": "text"
+          },
+          "retry_count": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "http": {
+            "client" : {
+              "properties" : {
+                "agent" : {
+                  "type" : "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 1024
+                    }
+                  }
+                },
+                "address" : {
+                  "type" : "ip"
+                }
+              }
+            },
+            "request" : {
+              "properties" : {
+                "scheme" : {
+                  "type" : "keyword",
+                  "ignore_above" : 10
+                },
+                "protocol" : {
+                  "type" : "keyword",
+                  "ignore_above" : 1024
+                },
+                "method" : {
+                  "type" : "keyword",
+                  "ignore_above" : 10
+                },
+                "host" : {
+                  "type" : "keyword",
+                  "ignore_above" : 1024
+                },
+                "uri" : {
+                  "type": "text",
+                  "fields": {
+                    "keyword": {
+                      "type": "keyword",
+                      "ignore_above": 1024
+                    }
+                  }
+                },
+                "payload" : {
+                  "type" : "text"
+                }
+              }
+            },
+            "response" : {
+              "properties" : {
+                "code" : {
+                  "type" : "integer"
+                },
+                "payload" : {
+                  "type" : "text"
+                }
+              }
+            }
+          }
+        }
+      },
+      "datetime": {
+        "properties": {
+          "date": {
+            "type": "keyword"
+          },
+          "timezone": {
+            "type": "keyword"
+          },
+          "timezone_type": {
+            "type": "byte"
+          }
+        }
+      },
+      "extra": {
+        "properties": {
+          "aggregate_id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "correlation_id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "hostname" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          },
+          "message_id": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "name": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "payload": {
+            "type": "text"
+          },
+          "reply_to": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "type": {
+            "type": "keyword"
+          },
+          "execution_time": {
+            "type": "float"
+          }
+        }
+      },
+      "level": {
+        "type": "short"
+      },
+      "level_name": {
+        "type": "keyword"
+      },
+      "message": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "occurred_on": {
+        "type": "date"
+      }
+    }
+  }
+}
